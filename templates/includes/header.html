@@ -1,9 +1,38 @@
+{% url 'home' as url_home %}
+{% url 'about' as url_about %}
+{% url 'qui_somme_nous' as url_qui_somme_nous %}
+{% url 'func_list' as func %}
 <header class="d-flex justify-content-center py-3">
+    
     <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+
+        {% if request.path == url_home %}
+            <li class="nav-item"><a href={{url_home}} class="nav-link active" aria-current="page">Home</a></li>
+        {% else %}
+            <li class="nav-item"><a href={{url_home}} class="nav-link" aria-current="page">Home</a></li>
+        {% endif %}
+
+
+        {% if request.path == url_qui_somme_nous %}
+            <li class="nav-item"><a href={{url_qui_somme_nous }} class="nav-link active">Qui somme nous ?</a></li>
+        {% else %}
+            <li class="nav-item"><a href={{url_qui_somme_nous }} class="nav-link">Qui somme nous ?</a></li>
+        {% endif %}
+        
+        {% if request.path == func %}
+        <li class="nav-item"><a href={{func }} class="nav-link active">Fonctionalites</a></li>
+        {% else %}
+        <li class="nav-item"><a href={{func }} class="nav-link">Fonctionalites</a></li>
+        {% endif %}
+        
+        
+        
+        {% if request.path == url_about %}
+        <li class="nav-item"><a href={{url_about}} class="nav-link active">About</a></li>
+        {% else %}
+        <li class="nav-item"><a href={{url_about}} class="nav-link">About</a></li>
+        {% endif %}
+       
     </ul>
+
 </header>

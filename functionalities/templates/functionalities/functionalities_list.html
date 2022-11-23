@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<main>
+    <ul>
+        {% for function in func_list  %}
+        <li><a href="detail/{{function.id}}"><span>{{function.id}} </span>{{function.name}} </a> </li>
+        {% endfor %}
+    </ul>
+</main>
+
+
+
+
+{% endblock content %}
